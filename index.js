@@ -83,14 +83,14 @@ Use the finalScore function below to do the following:
 }
 */ 
 
-function finalScore(innings, callback){
+function finalScore(innings, cb){
   const score = {
     Home: 0,
     Away: 0,
   }
   while (innings > 0 ) {
-    score.Home += callback()
-    score.Away += callback()
+    score.Home += cb()
+    score.Away += cb()
     innings--
   }
   return score
@@ -149,11 +149,11 @@ Use the scoreboard function below to do the following:
   "This game will require extra innings: Away 10 - Home 10"]  
   */
 
-function scoreboard(getInningScoreCallback, inningCallback, numInnings) {
+function scoreboard(getInningScoreCallback, inningCallback, innings) {
   const arr = []
   const score = {Home: 0, Away:0}
 
-  for (let i = 0; i < numInnings; i++) {
+  for (let i = 0; i < innings; i++) {
     const inningScore = getInningScoreCallback(inningCallback)
     score.Home += inningScore.Home
     score.Away += inningScore.Away
